@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Song song = new Song("", "");
+        Model model = new Model();
         View view = new View();
     }
 }
