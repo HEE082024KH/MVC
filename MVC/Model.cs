@@ -1,19 +1,19 @@
 public class Song
 {
-  public string? Title { get; set; }
-  public string? Artist { get; set; }
-  public string? Genre { get; set; }
+  public required string Title { get; set; }
+  public required string Artist { get; set; }
+  public required string Genre { get; set; }
 }
 
-public class Model
+public class SongList
 {
-  public List<Song>? Songs { get; set; }
+  public List<Song> Songs { get; set; }
 
-  public Model()
+  public SongList()
   {
     Songs = new List<Song>
     {
-      //
+
     };
   }
 }

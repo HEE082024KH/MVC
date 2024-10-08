@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Model model = new Model();
+        Console.WriteLine("Starting program");
+        SongList song = new SongList();
         View view = new View();
     }
 }
