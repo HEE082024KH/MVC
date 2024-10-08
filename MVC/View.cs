@@ -1,12 +1,13 @@
 public class View
 {
-  public void Display(SongList model)
+  public void Display(SongList song)
   {
     Console.WriteLine("Displaying the song information");
-    Console.WriteLine(model.ToString());
+    Console.WriteLine(song.ToString());
   }
   public void Message(string message)
   {
     Console.WriteLine(message);
   }
+
 }

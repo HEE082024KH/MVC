@@ -3,9 +3,9 @@ public class Controller
   private SongList _songs;
   private View _view;
 
-  public Controller(SongList model, View view)
+  public Controller(SongList song, View view)
   {
-    _songs = model;
+    _songs = song;
     _view = view;
   }
 
