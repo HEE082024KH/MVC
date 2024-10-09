@@ -7,6 +7,7 @@ class Program
         SongList song = new SongList();
         View view = new View();
         Controller controller = new Controller(song, view);
+        controller.UpdateSong();
 
         // Console.WriteLine("Type u to create/update, type o to output");
         // string? input = Console.ReadLine();
