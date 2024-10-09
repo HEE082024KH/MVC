@@ -11,6 +11,7 @@ public class Controller
 
   public void UpdateSong()
   {
+    // Input title, artist, genre
     _view.Message("Enter song title");
     string? newTitle = Console.ReadLine();
     if (newTitle == null)
@@ -30,17 +31,27 @@ public class Controller
       return;
     }
 
-    Song? song;
+    // Check if song is already registered
+    Song? existingSong;
 
     for (int i = 0; i < _songs.Songs.Count; i++)
     {
       Song currentSong = _songs.Songs[i];
       if (currentSong.Title == newTitle && currentSong.Artist == newArtist)
       {
-        song = currentSong;
+        existingSong = currentSong;
         break;
       }
     };
+
+    // Add song to List
+    Song newSong = new Song(newTitle, newArtist, newGenre)
+    {
+      Title = newTitle,
+      Artist = newArtist,
+      Genre = newGenre
+    };
+    _songs.Songs.Add(newSong);
   }
 
   public void ShowSongs()
