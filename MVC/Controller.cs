@@ -42,4 +42,23 @@ public class Controller
       }
     };
   }
+
+  public void ShowSongs()
+  {
+    _view.Display(_songs);
+  }
+
+  // public void Run();
+  // Console.WriteLine("Type u to create/update, type o to output");
+  // string? input = Console.ReadLine();
+  // switch (input)
+  // {
+  //     case u:
+  //         controller.UpdateSong();
+  //         break;
+  //     case o:
+  //     // Output list
+  //     default:
+  //         break;
+  // }
 }

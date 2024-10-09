@@ -9,5 +9,4 @@ public class View
   {
     Console.WriteLine(message);
   }
-
 }
