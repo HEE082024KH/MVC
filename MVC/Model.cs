@@ -1,8 +1,8 @@
 public class Song
 {
-  public required string Title { get; set; }
-  public required string Artist { get; set; }
-  public required string Album { get; set; }
+  public string Title { get; set; }
+  public string Artist { get; set; }
+  public string Album { get; set; }
 
   public Song(string title, string artist, string album)
   {
@@ -14,17 +14,48 @@ public class Song
 
 public class SongList
 {
-  public List<Song> Songs { get; set; }
+  List<Song> Songs = [];
+  View view = new();
 
-  public SongList()
+  public void AddSong(Song song)
   {
-    Songs = new List<Song>
+    Songs.Add(song);
+  }
+
+  public List<Song> GetSongs()
+  {
+    return Songs;
+  }
+  public void UpdateSongs(string newTitle, string newArtist, string newAlbum)
+  {
+    // Check if song is already registered
+    Song? existingSong;
+    for (int i = 0; i < GetSongs().Count; i++)
     {
-      // new Song("Schism", "Tool", "Lateralus")
-      // new Song("Anesthetize", "Porcupine Tree", "Fear of a Blank Planet")
-      // new Song("Lacquer Head", "Primus", "Antipop")
-      // new Song("Hump De Bump", "Red Hot Chili Peppers", "Stadium Arcadium")
-      // new song("Silver Tongue", "Alter Bridge", "Pawns & Kings")
+      Song currentSong = GetSongs()[i];
+      if (currentSong.Title == newTitle && currentSong.Artist == newArtist)
+      {
+        existingSong = currentSong;
+        Console.WriteLine("Song is already added");
+        break;
+      }
     };
+
+    // Add song to List
+    Song newSong = new Song(newTitle, newArtist, newAlbum)
+    {
+      Title = newTitle,
+      Artist = newArtist,
+      Album = newAlbum
+    };
+    AddSong(newSong);
+  }
+  public void ShowSongs(List<Song> songList)
+  {
+    Console.WriteLine("Showing list of songs" + songList.Count);
+    foreach (var item in songList)
+    {
+      view.Display(item);
+    }
   }
 }

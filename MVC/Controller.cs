@@ -1,75 +1,65 @@
 public class Controller
 {
-  private SongList _songs;
+  private SongList _songList;
   private View _view;
 
   public Controller(SongList song, View view)
   {
-    _songs = song;
+    _songList = song;
     _view = view;
   }
 
-  public void UpdateSong()
+  public void InputSong()
   {
     // Input title, artist, genre
     _view.Message("Enter song title");
     string? newTitle = Console.ReadLine();
     if (newTitle == null)
     {
+      Console.WriteLine("Invalid title");
       return;
     }
     _view.Message("Enter artist name");
     string? newArtist = Console.ReadLine();
     if (newArtist == null)
     {
+      Console.WriteLine("Invalid artist");
       return;
     }
     _view.Message("Enter album name");
     string? newAlbum = Console.ReadLine();
     if (newAlbum == null)
     {
+      Console.WriteLine("Invalid album");
       return;
     }
 
-    // Check if song is already registered
-    Song? existingSong;
-
-    for (int i = 0; i < _songs.Songs.Count; i++)
-    {
-      Song currentSong = _songs.Songs[i];
-      if (currentSong.Title == newTitle && currentSong.Artist == newArtist)
-      {
-        existingSong = currentSong;
-        break;
-      }
-    };
-
-    // Add song to List
-    Song newSong = new Song(newTitle, newArtist, newAlbum)
-    {
-      Title = newTitle,
-      Artist = newArtist,
-      Album = newAlbum
-    };
-    _songs.Songs.Add(newSong);
+    _songList.UpdateSongs(newTitle, newArtist, newAlbum);
   }
 
-  public void ShowSongs()
+  SongList song = new SongList();
+  public void Run()
   {
-    _view.Display(_songs);
-  }
 
-  // public void Run();
-  // Console.WriteLine("Type u to create/update, type o to output");
-  // string? input = Console.ReadLine();
-  // switch (input)
-  // {
-  //     case u:
-  //         controller.UpdateSong();
-  //         break;
-  //     case o:
-  //     // Output list
-  //     default:
-  //         break;
-  // }
+    bool exit = false;
+
+    while (!exit)
+    {
+      Console.WriteLine("Type u to update song, o to write list, e to exit");
+      string? input = Console.ReadLine();
+      switch (input)
+      {
+        case "u":
+          InputSong();
+          break;
+        case "o":
+          song.ShowSongs(song.GetSongs());
+          break;
+        // Output list
+        case "e":
+          exit = true;
+          break;
+      }
+    }
+  }
 }
