@@ -24,9 +24,9 @@ public class Controller
     {
       return;
     }
-    _view.Message("Enter genre name");
-    string? newGenre = Console.ReadLine();
-    if (newGenre == null)
+    _view.Message("Enter album name");
+    string? newAlbum = Console.ReadLine();
+    if (newAlbum == null)
     {
       return;
     }
@@ -45,11 +45,11 @@ public class Controller
     };
 
     // Add song to List
-    Song newSong = new Song(newTitle, newArtist, newGenre)
+    Song newSong = new Song(newTitle, newArtist, newAlbum)
     {
       Title = newTitle,
       Artist = newArtist,
-      Genre = newGenre
+      Album = newAlbum
     };
     _songs.Songs.Add(newSong);
   }
