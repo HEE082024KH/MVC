@@ -56,7 +56,7 @@ public class Controller
           InputSong();
           break;
         case "o":
-          song.ShowSongs(song.GetSongs());
+          _view.ShowSongs(song.GetSongs());
           break;
         case "e":
           exit = true;

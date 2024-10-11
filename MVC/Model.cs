@@ -17,6 +17,11 @@ public class SongList
   List<Song> Songs = [];
   View view = new();
 
+  public SongList()
+  {
+    Songs = new List<Song>();
+  }
+
   public void AddSong(Song song)
   {
     Songs.Add(song);
@@ -50,15 +55,5 @@ public class SongList
       Album = newAlbum
     };
     AddSong(newSong);
-  }
-
-  // Method to display the current songs in the list
-  public void ShowSongs(List<Song> songList)
-  {
-    Console.WriteLine("Showing list of songs" + songList.Count);
-    foreach (var item in songList)
-    {
-      view.Display(item);
-    }
   }
 }
