@@ -14,9 +14,10 @@ public class View
   // Method to display the current songs in the list
   public void ShowSongs(List<Song> songList)
   {
-    Console.WriteLine("Showing list of songs" + songList.Count);
+    Console.WriteLine("Showing list of songs (" + songList.Count + ")");
     foreach (var item in songList)
     {
+      Console.WriteLine("-----------------");
       Display(item);
     }
   }
