@@ -9,6 +9,7 @@ public class Controller
     _view = view;
   }
 
+  // Add song to list from user input
   public void InputSong()
   {
     // Input title, artist, genre
@@ -38,6 +39,8 @@ public class Controller
   }
 
   SongList song = new SongList();
+
+  // Method to choose operation from user input.
   public void Run()
   {
 
@@ -55,7 +58,6 @@ public class Controller
         case "o":
           song.ShowSongs(song.GetSongs());
           break;
-        // Output list
         case "e":
           exit = true;
           break;

@@ -26,6 +26,7 @@ public class SongList
   {
     return Songs;
   }
+
   public void UpdateSongs(string newTitle, string newArtist, string newAlbum)
   {
     // Check if song is already registered
@@ -41,7 +42,7 @@ public class SongList
       }
     };
 
-    // Add song to List
+    // Add song to the list, from previous user input
     Song newSong = new Song(newTitle, newArtist, newAlbum)
     {
       Title = newTitle,
@@ -50,6 +51,8 @@ public class SongList
     };
     AddSong(newSong);
   }
+
+  // Method to display the current songs in the list
   public void ShowSongs(List<Song> songList)
   {
     Console.WriteLine("Showing list of songs" + songList.Count);
